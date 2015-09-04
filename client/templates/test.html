@@ -1,0 +1,56 @@
+<head>
+</head>
+
+<body>
+</body>
+
+<template name="layout">
+  {{> loginButtons}}
+  {{#each groupRoutes}}
+    <a href="{{path}}">{{name}}</a>
+  {{/each}}
+  {{> Template.dynamic template=template}}
+</template>
+
+<template name="home">
+  <h1>This is a homepage</h1>
+</template>
+
+<template name="public">
+  <h1>This is a public page</h1>
+</template>
+
+<template name="private">
+  <h1>This is a private page</h1>
+  {{> table}}
+  <a href="/private?type=foo">Foo</a>
+  <a href="/private?type=bar">Bar</a>
+  <a href="/private?type=">All</a>
+</template>
+
+<template name="dashboard">
+  <h1>This is a dashboard</h1>
+  <button data-type="foo">Foo</button>
+  <button data-type="bar">Bar</button>
+  <button data-type="">All</button>
+  {{> table}}
+</template>
+
+<template name="table">
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each testDocs}}
+        <tr>
+          <td>{{type}}</td>
+          <td>{{name}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</template>
